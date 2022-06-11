@@ -18,6 +18,20 @@ public class SubwayLinePanel extends JPanel {
 	public SubwayLinePanel()
 	{
 
+
+		for(int i = 0; i < 4; i++)
+			for(int j = 0; j < 10; j++)
+			{
+				int x = xInterval * j + 160;
+				int y = yInterval * i + 200;
+				int diameter = 20;
+				platformNode[i][j] = new Ellipse2D.Double(x, y, diameter, diameter);
+			}
+	}
+
+	public void paintComponent(Graphics g)
+	{
+
 		TwitterHandler twitterHandler = new TwitterHandler();
 
 		java.util.List<String> subwayNameList = Arrays.asList(
@@ -38,19 +52,6 @@ public class SubwayLinePanel extends JPanel {
 //			exception.printStackTrace();
 //		}
 
-
-		for(int i = 0; i < 4; i++)
-			for(int j = 0; j < 10; j++)
-			{
-				int x = xInterval * j + 160;
-				int y = yInterval * i + 200;
-				int diameter = 20;
-				platformNode[i][j] = new Ellipse2D.Double(x, y, diameter, diameter);
-			}
-	}
-
-	public void paintComponent(Graphics g)
-	{
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g.setColor(Color.ORANGE);
@@ -83,6 +84,13 @@ public class SubwayLinePanel extends JPanel {
 			{
 				// 마지막 행은 노드가 8개밖에 없으므로
 				// (i = 3, j = 0, 1)인 노드는 그리지 않는다
+				if( 1 <= subwaySearchNumList.get(i * 10 + j) && subwaySearchNumList.get(i * 10 + j) <= 7){
+					g.setColor(Color.GREEN);
+				}else if( subwaySearchNumList.get(i * 10 + j) <= 15){
+					g.setColor(Color.YELLOW);
+				}else{
+					g.setColor(Color.RED);
+				}
 				if(i == 3 && j < 2)
 					continue;
 				g2d.fill(platformNode[i][j]);
