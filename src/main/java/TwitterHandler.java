@@ -4,10 +4,10 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.util.List;
 
 public class TwitterHandler {
-    static String ConsumerKey = "oXMJIkH2byVZEqppPf6egvqnb";
-    static String ConsumerSecret = "4scV8GJ1Wluc5v6WxSslDYzgB5J3sNz4I6uRSQb8UCMX7HeLLE";
-    static String AccessToken = "1527944347013943296-a65fRT7dc7cSVZLkTK18LbNPNKKxxe";
-    static String AccessTokenSecret = "eMxa5y0KyKswTl6Xj5ySxCykPExnHhpWI93atjlFEjhJl";
+    static String ConsumerKey = "ER0ofYPsLidLLVtZy7ALYiJ6a";
+    static String ConsumerSecret ="86GU2jwwXLp8IgYtYx1kCwTjMszoMa2yx0uDpVSkddTLwxrhdP";
+    static String AccessToken = "1527554246966595585-u7dhuedqw7St5qAscybQrItNmYh88S";
+    static String AccessTokenSecret = "027RCgdGuoVxuUqC46v85uDexLNX57urd1OxzphEnxdRm";
 
     public Twitter getTwitter() {
 
@@ -29,7 +29,6 @@ public class TwitterHandler {
 
         Query query = new Query(keyword);
         query.setCount(20);
-        query.setResultType(Query.POPULAR);
 
         Status s;
 

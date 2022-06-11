@@ -43,14 +43,19 @@ public class SubwayLinePanel extends JPanel {
 
 		java.util.List<Integer> subwaySearchNumList = new ArrayList<>();
 
+		subwaySearchNumList.add(10);
+
 //		try {
 //			for (String subwayName : subwayNameList) {
 //				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
 //				subwaySearchNumList.add(tweetList.size());
+//				System.out.println(tweetList.size());
 //			}
 //		} catch (TwitterException exception) {
 //			exception.printStackTrace();
 //		}
+
+		subwaySearchNumList.add(10);
 
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -84,13 +89,14 @@ public class SubwayLinePanel extends JPanel {
 			{
 				// 마지막 행은 노드가 8개밖에 없으므로
 				// (i = 3, j = 0, 1)인 노드는 그리지 않는다
-				if( 1 <= subwaySearchNumList.get(i * 10 + j) && subwaySearchNumList.get(i * 10 + j) <= 7){
-					g.setColor(Color.GREEN);
-				}else if( subwaySearchNumList.get(i * 10 + j) <= 15){
-					g.setColor(Color.YELLOW);
-				}else{
-					g.setColor(Color.RED);
-				}
+//				if( 1 <= subwaySearchNumList.get(i * 10 + j) && subwaySearchNumList.get(i * 10 + j) <= 7){
+//					g.setColor(Color.GREEN);
+//				}else if( subwaySearchNumList.get(i * 10 + j) <= 15){
+//					g.setColor(Color.YELLOW);
+//				}else{
+//					g.setColor(Color.RED);
+//				}
+				g.setColor(Color.BLACK);
 				if(i == 3 && j < 2)
 					continue;
 				g2d.fill(platformNode[i][j]);
