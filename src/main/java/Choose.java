@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 
 public class Choose extends  JFrame{
-    Choose(String a){
+    Choose(String subwayName, TwitterHandler twitterHandler){
         super("Choose");
         JPanel jPanel = new JPanel();
 
@@ -25,7 +25,7 @@ public class Choose extends  JFrame{
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new TweetTable();
+                new TweetTable(subwayName, twitterHandler.getGoodResMap());
             }
         });
 
@@ -35,7 +35,7 @@ public class Choose extends  JFrame{
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new TweetTable(subwayName, twitterHandler.getCafeMap());
             }
         });
 
@@ -45,7 +45,7 @@ public class Choose extends  JFrame{
         btn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new TweetTable(subwayName, twitterHandler.getHotMap());
             }
         });
 
