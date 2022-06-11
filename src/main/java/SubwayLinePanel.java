@@ -44,9 +44,13 @@ public class SubwayLinePanel extends JPanel {
 				g2d.drawLine(startX, Y, startX, Y + yInterval);
 			else if(i == 2)
 				g2d.drawLine(endX, Y, endX, Y + yInterval);
-			/*
-			 * 노선도 중 원(노드) 그리기
-			 */
+		}
+
+		/*
+		 * 노선도 중 원(노드) 그리기
+		 */
+		g.setColor(Color.BLUE);
+		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 10; j++)
 			{
 				// 마지막 행은 노드가 8개밖에 없으므로
