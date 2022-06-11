@@ -43,14 +43,14 @@ public class SubwayLinePanel extends JPanel {
 
 		java.util.List<Integer> subwaySearchNumList = new ArrayList<>();
 
-		try {
-			for (String subwayName : subwayNameList) {
-				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
-				subwaySearchNumList.add(tweetList.size());
-			}
-		} catch (TwitterException exception) {
-			exception.printStackTrace();
-		}
+//		try {
+//			for (String subwayName : subwayNameList) {
+//				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
+//				subwaySearchNumList.add(tweetList.size());
+//			}
+//		} catch (TwitterException exception) {
+//			exception.printStackTrace();
+//		}
 
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;

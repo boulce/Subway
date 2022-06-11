@@ -17,6 +17,13 @@ public class Window extends JFrame{
 		setTitle("소프트웨어 프로젝트 Subway");
 		setLayout(new BorderLayout());
 
+		java.util.List<String> subwayNameList = Arrays.asList(
+				"","개화", "김포공항", "공항시장", "신방화", "마곡나루", "양천향교", "가양", "증미", "등촌", "염창",
+				"동작", "흑석", "노들", "노량진", "샛강", "여의도", "국회의사당", "당산", "선유도", "신목동",
+				"반포", "신반포", "고속버스터미널", "사평", "신논현", "언주", "선정릉", "삼성중앙", "봉은사", "종합운동장",
+				"중앙보훈병원", "둔촌오륜", "올림픽공원", "한성백제", "송파나루", "석촌", "석촌고분", "삼전"
+		);
+
 		//1st line
 		JRadioButton btn1 = new JRadioButton();
 		JRadioButton btn2 = new JRadioButton();
@@ -156,7 +163,7 @@ public class Window extends JFrame{
 		btn37.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Tweet_List("ㅎㅎ");
+				new Choose(subwayNameList.get(37));
 			}
 		});
 
