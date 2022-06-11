@@ -1,6 +1,12 @@
+import twitter4j.Status;
+import twitter4j.TwitterException;
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.*;
 
 public class SubwayLinePanel extends JPanel {
@@ -8,8 +14,31 @@ public class SubwayLinePanel extends JPanel {
 	final int xInterval = 100;
 	final int yInterval = 170;
 
+
 	public SubwayLinePanel()
 	{
+
+		TwitterHandler twitterHandler = new TwitterHandler();
+
+		java.util.List<String> subwayNameList = Arrays.asList(
+				"개화", "김포공항", "공항시장", "신방화", "마곡나루", "양천향교", "가양", "증미", "등촌", "염창",
+				"동작", "흑석", "노들", "노량진", "샛강", "여의도", "국회의사당", "당산", "선유도", "신목동",
+				"반포", "신반포", "고속버스터미널", "사평", "신논현", "언주", "선정릉", "삼성중앙", "봉은사", "종합운동장",
+				"중앙보훈병원", "둔촌오륜", "올림픽공원", "한성백제", "송파나루", "석촌", "석촌고분", "삼전"
+		);
+
+		java.util.List<Integer> subwaySearchNumList = new ArrayList<>();
+
+		try {
+			for (String subwayName : subwayNameList) {
+				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
+				subwaySearchNumList.add(tweetList.size());
+			}
+		} catch (TwitterException exception) {
+			exception.printStackTrace();
+		}
+
+
 		for(int i = 0; i < 4; i++)
 			for(int j = 0; j < 10; j++)
 			{
@@ -44,19 +73,25 @@ public class SubwayLinePanel extends JPanel {
 				g2d.drawLine(startX, Y, startX, Y + yInterval);
 			else if(i == 2)
 				g2d.drawLine(endX, Y, endX, Y + yInterval);
-			/*
-			 * 노선도 중 원(노드) 그리기
-			 */
+		}
+
+		/*
+		 * 노선도 중 원(노드) 그리기
+		 */
+		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 10; j++)
 			{
 				// 마지막 행은 노드가 8개밖에 없으므로
 				// (i = 3, j = 0, 1)인 노드는 그리지 않는다
+				if()
 				if(i == 3 && j < 2)
 					continue;
 				g2d.fill(platformNode[i][j]);
 				g2d.draw(platformNode[i][j]);
 			}
 		}
+
+
 		Color color5 = new Color(127, 0, 255);
 		Color colora = new Color(0, 236, 253);
 		Color colorb = new Color(153, 76, 0);
