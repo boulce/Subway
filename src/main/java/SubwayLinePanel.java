@@ -29,14 +29,14 @@ public class SubwayLinePanel extends JPanel {
 
 		java.util.List<Integer> subwaySearchNumList = new ArrayList<>();
 
-		try {
-			for (String subwayName : subwayNameList) {
-				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
-				subwaySearchNumList.add(tweetList.size());
-			}
-		} catch (TwitterException exception) {
-			exception.printStackTrace();
-		}
+//		try {
+//			for (String subwayName : subwayNameList) {
+//				List<Status> tweetList = twitterHandler.getTweetList(subwayName);
+//				subwaySearchNumList.add(tweetList.size());
+//			}
+//		} catch (TwitterException exception) {
+//			exception.printStackTrace();
+//		}
 
 
 		for(int i = 0; i < 4; i++)
@@ -83,7 +83,6 @@ public class SubwayLinePanel extends JPanel {
 			{
 				// 마지막 행은 노드가 8개밖에 없으므로
 				// (i = 3, j = 0, 1)인 노드는 그리지 않는다
-				if()
 				if(i == 3 && j < 2)
 					continue;
 				g2d.fill(platformNode[i][j]);

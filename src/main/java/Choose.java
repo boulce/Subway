@@ -17,7 +17,6 @@ public class Choose extends  JFrame{
         Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
         JButton btn1 = new JButton("맛집");
@@ -26,7 +25,7 @@ public class Choose extends  JFrame{
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new TweetTable();
             }
         });
 
