@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Window extends JFrame{
@@ -8,6 +10,8 @@ public class Window extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("소프트웨어 프로젝트 Subway");
 		setLayout(new BorderLayout());
+
+
 
 		Color[] color = {new Color(255,200,0)};
 		//1st line
@@ -144,6 +148,15 @@ public class Window extends JFrame{
 		add(btn19); add(btn20); add(btn21); add(btn22); add(btn23); add(btn24); add(btn25); add(btn26); add(btn27); add(btn28);
 		//4rd line
 		add(btn29); add(btn30); add(btn31); add(btn32); add(btn33); add(btn34); add(btn35); add(btn36); add(btn37); add(btn38);
+
+		btn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TwitterHandler();
+				setVisible(false);
+			}
+		});
+
 		SubwayLinePanel slp = new SubwayLinePanel();
 		add(slp);
 		setLocationRelativeTo(null);
